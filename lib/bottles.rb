@@ -15,14 +15,14 @@ class Bottles
   private
 
   def sentence_one(number)
-    case number
-    when 0
-      prefix_string(number).capitalize + " of beer on the wall, " +
-      prefix_string(number) + " of beer.\n"
+    str = prefix_string(number)
+    if (number == 0)
+      begin_sentence = str.capitalize
     else
-      prefix_string(number) + " of beer on the wall, " +
-      prefix_string(number) + " of beer.\n"
+      begin_sentence = str
     end
+    begin_sentence + " of beer on the wall, " +
+      str + " of beer.\n"
   end
 
   def sentence_three(number)
