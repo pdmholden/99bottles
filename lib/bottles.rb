@@ -14,16 +14,11 @@ class Bottles
       "no more #{container(number)} of beer.\n" +
       "Go to the store and buy some more, " +
       "99 #{container(99)} of beer on the wall.\n"
-    when 1
-      "#{number} #{container(number)} of beer on the wall, " +
-      "#{number} #{container(number)} of beer.\n" +
-      "Take #{single(number)} down and pass it around, " +
-      "no more #{container(number-1)} of beer on the wall.\n"
     else
       "#{number} #{container(number)} of beer on the wall, " +
       "#{number} #{container(number)} of beer.\n" +
       "Take #{single(number)} down and pass it around, " +
-      "#{number-1} #{container(number-1)} of beer on the wall.\n"
+      "#{number_left(number)} #{container(number-1)} of beer on the wall.\n"
     end
   end
 
@@ -40,6 +35,14 @@ class Bottles
       "it"
     else
       "one"
+    end
+  end
+
+  def number_left(starting_number)
+    if (starting_number == 1)
+      "no more"
+    else
+      starting_number - 1
     end
   end
 end
