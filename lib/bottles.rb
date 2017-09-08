@@ -13,7 +13,7 @@ class Bottles
       "No more #{container(number)} of beer on the wall, " +
       "no more #{container(number)} of beer.\n" +
       take_appropriate_action(number) +
-      "99 #{container(99)} of beer on the wall.\n"
+      "#{number_left(number)} #{container(number-1)} of beer on the wall.\n"
     else
       "#{number} #{container(number)} of beer on the wall, " +
       "#{number} #{container(number)} of beer.\n" +
@@ -23,7 +23,7 @@ class Bottles
   end
 
   def container(number)
-    if number == 1
+    if (number == 1)
       "bottle"
     else
       "bottles"
@@ -39,7 +39,9 @@ class Bottles
   end
 
   def number_left(starting_number)
-    if (starting_number == 1)
+    if (starting_number == 0)
+      99
+    elsif (starting_number == 1)
       "no more"
     else
       starting_number - 1
