@@ -8,18 +8,10 @@ class Bottles
   end
 
   def verse(number)
-    case number
-    when 0
-      "No more #{container(number)} of beer on the wall, " +
-      "no more #{container(number)} of beer.\n" +
-      take_appropriate_action(number) +
-      "#{number_left(number)} #{container(number-1)} of beer on the wall.\n"
-    else
-      "#{number} #{container(number)} of beer on the wall, " +
-      "#{number} #{container(number)} of beer.\n" +
-      take_appropriate_action(number) +
-      "#{number_left(number)} #{container(number-1)} of beer on the wall.\n"
-    end
+    "#{initial_number(number, true)} #{container(number)} of beer on the wall, " +
+    "#{initial_number(number, false)} #{container(number)} of beer.\n" +
+    take_appropriate_action(number) +
+    "#{number_left(number)} #{container(number-1)} of beer on the wall.\n"
   end
 
   def container(number)
@@ -35,6 +27,18 @@ class Bottles
       "it"
     else
       "one"
+    end
+  end
+
+  def initial_number(number, grammar = true)
+    if (number == 0)
+      if (grammar)
+        "No more"
+      else
+        "no more"
+      end
+    else
+      "#{number}"
     end
   end
 
