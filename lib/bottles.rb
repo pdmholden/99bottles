@@ -29,12 +29,15 @@ class Bottles
   end
 
   def verse(number)
-    "#{quantity(number).capitalize} #{container(number)} of beer on the wall, " +
-    "#{quantity(number)} #{container(number)} of beer.\n" +
-    "#{action(number)}, " +
-    "#{quantity(successor(number))} #{container(successor(number))} of beer on the wall.\n"
+    bn = BottleNumber.new
+    "#{bn.quantity(number).capitalize} #{bn.container(number)} of beer on the wall, " +
+    "#{bn.quantity(number)} #{bn.container(number)} of beer.\n" +
+    "#{bn.action(number)}, " +
+    "#{bn.quantity(bn.successor(number))} #{bn.container(bn.successor(number))} of beer on the wall.\n"
   end
+end
 
+class BottleNumber
   # explains what's special, ie, 0
   # 9 - depends more on the param
   def quantity(number)
