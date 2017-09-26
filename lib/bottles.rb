@@ -30,10 +30,10 @@ class Bottles
 
   def verse(number)
     bn = BottleNumber.new(number)
-    "#{bn.quantity(number).capitalize} #{bn.container(number)} of beer on the wall, " +
-    "#{bn.quantity(number)} #{bn.container(number)} of beer.\n" +
+    "#{bn.quantity.capitalize} #{bn.container(number)} of beer on the wall, " +
+    "#{bn.quantity} #{bn.container(number)} of beer.\n" +
     "#{bn.action}, " +
-    "#{bn.quantity(bn.successor)} #{bn.container(bn.successor)} of beer on the wall.\n"
+    "#{bn.quantity(true)} #{bn.container(bn.successor)} of beer on the wall.\n"
   end
 end
 
@@ -46,11 +46,12 @@ class BottleNumber
 
   # explains what's special, ie, 0
   # 9 - depends more on the param
-  def quantity(number)
-    if number == 0
+  def quantity(get_successor_first = false)
+    num = get_successor_first ? successor : number
+    if num == 0
       "no more"
     else
-      number.to_s
+      num.to_s
     end
   end
 
