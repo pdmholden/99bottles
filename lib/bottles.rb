@@ -72,14 +72,14 @@ class BottleNumber
     if number == 0
       "Go to the store and buy some more"
     else
-      "Take #{pronoun(number)} down and pass it around"
+      "Take #{pronoun} down and pass it around"
     end
   end
 
   # explains what's special, ie, 1
   # related to container? or is that the abstraction we avoided?
   # 9 - depends more on the param
-  def pronoun(number)
+  def pronoun
     if number == 1
       "it"
     else
