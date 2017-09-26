@@ -29,15 +29,21 @@ class Bottles
   end
 
   def verse(number)
-    bn = BottleNumber.new
+    bn = BottleNumber.new(number)
     "#{bn.quantity(number).capitalize} #{bn.container(number)} of beer on the wall, " +
     "#{bn.quantity(number)} #{bn.container(number)} of beer.\n" +
-    "#{bn.action(number)}, " +
-    "#{bn.quantity(bn.successor(number))} #{bn.container(bn.successor(number))} of beer on the wall.\n"
+    "#{bn.action}, " +
+    "#{bn.quantity(bn.successor)} #{bn.container(bn.successor)} of beer on the wall.\n"
   end
 end
 
 class BottleNumber
+  attr_reader :number
+
+  def initialize(number)
+    @number = number
+  end
+
   # explains what's special, ie, 0
   # 9 - depends more on the param
   def quantity(number)
@@ -60,7 +66,7 @@ class BottleNumber
 
   # parameter has nothing to do with meaning of method
   # 9 - depends more on the class? what to do with bottles/beer/containers?
-  def action(number)
+  def action
     if number == 0
       "Go to the store and buy some more"
     else
@@ -84,7 +90,7 @@ class BottleNumber
   # not clear why go back to 99
   # 9 - depends more on the class? param is important but related logic seems
   #     to be something else, maybe a class
-  def successor(number)
+  def successor
     if number == 0
       99
     else
