@@ -22,6 +22,8 @@ class BottleFactory
   def self.newBottleNumber(number)
     if (number == 0)
       BottleNumber0.new
+    elsif (number == 1)
+      BottleNumber1.new
     else
       BottleNumber.new(number)
     end
@@ -82,5 +84,27 @@ class BottleNumber0 < BottleNumber
 
   def successor
     99
+  end
+end
+
+class BottleNumber1 < BottleNumber
+  def initialize
+    super(1)
+  end
+
+  def container
+    if number == 1
+      "bottle"
+    else
+      "bottles"
+    end
+  end
+
+  def pronoun
+    if number == 1
+      "it"
+    else
+      "one"
+    end
   end
 end
