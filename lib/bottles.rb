@@ -20,7 +20,11 @@ end
 
 class BottleFactory
   def self.newBottleNumber(number)
-    BottleNumber.new(number)
+    if (number == 0)
+      BottleNumber0.new
+    else
+      BottleNumber.new(number)
+    end
   end
 end
 
@@ -76,6 +80,10 @@ class BottleNumber
 end
 
 class BottleNumber0 < BottleNumber
+  def initialize
+    super(0)
+  end
+
   def quantity
     "no more"
   end
