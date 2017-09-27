@@ -47,19 +47,11 @@ class BottleNumber
   end
 
   def quantity
-    if number == 0
-      "no more"
-    else
-      number.to_s
-    end
+    number.to_s
   end
 
   def action
-    if number == 0
-      "Go to the store and buy some more"
-    else
-      "Take #{pronoun} down and pass it around"
-    end
+    "Take #{pronoun} down and pass it around"
   end
 
   def pronoun
@@ -71,11 +63,7 @@ class BottleNumber
   end
 
   def successor
-    if number == 0
-      99
-    else
-      number - 1
-    end
+    number - 1
   end
 end
 
